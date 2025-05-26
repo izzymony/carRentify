@@ -9,7 +9,7 @@ const carsData = [
   { id: 2, name: 'Honda Accord', price: 55, description: 'Comfortable and spacious for long trips.', image: '/pexels-vadutskevich-16350076.jpg' },
   { id: 3, name: 'Ford Mustang', price: 70, description: 'A sporty car for an exciting drive.', image: '/cars/ford-mustang.jpg' },
   { id: 4, name: 'Tesla Model 3', price: 80, description: 'An electric car with advanced features.', image: '/cars/tesla-model3.jpg' },
-  {id: 5,  name:'', price: 3000, description:''}
+  {id: 5,  name:'Audi Q5', price: 3000, description:''}
 ];
 
 export default function Home() {

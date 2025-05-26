@@ -79,12 +79,43 @@ const page = ()  =>{
                  <hr className='mt-2'/>
 
                   <h2 className='text-black font-bold text-[20px] mt-2'>{car.title}</h2>        
-                 <p className='mt-2 text-gray-400' >{car.description}</p>
+                 <p className='mt-2 text-[#aaaba9] '>{car.description}</p>
                   <hr className='mt-2'/>
               <p className='text-[#646ae8] font-semibold mt-2 text-[20px]'>${car.price}/day</p>
 
 
          </div>
+
+          <div className="mb-8 border-2 border-grey-100 rounded-[10px] p-2 mt-4">
+              <h2 className="text-xl font-semibold mb-3 text-black">Key Features</h2>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {car.features.map((feature, index) => (
+                  <li key={index} className="flex items-center text-[#aaaba9]">
+                    <span className="text-[#646ae8] mr-2">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+                        <div className="mb-8 border  border-2 border-grey-100 rounded-[10px] p-2">
+              <h2 className="text-xl font-semibold mb-3 text-gray-900">Specifications</h2>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-gray-600">Engine</p>
+                  <p className="font-medium text-[#aaaba9]">{car.specs.engine}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Mileage</p>
+                  <p className="font-medium text-[#aaaba9]">{car.specs.mileage}</p>
+                </div>
+              
+                <div>
+                  <p className="text-gray-600">Year</p>
+                  <p className="font-medium text-[#aaaba9]">{car.specs.year}</p>
+                </div>
+              </div>
+            </div>
+
         </div> 
       </div>
     </div>

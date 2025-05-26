@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import Nav from '../../components/Nav'
+import Cars from '../../components/Cars'
 
 const carsData = [
   { 
@@ -115,7 +116,7 @@ const page = ()  =>{
                 </div>
               </div>
             </div>
-
+                
         </div> 
       </div>
     </div>

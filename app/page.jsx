@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useState, useMemo } from "react";
 
 const carsData = [
-  { id: 1, name: 'Toyota Camry', price: 50, description: 'A reliable sedan for your travels.', image: '/pexels-harem-1617688755-28688908.jpg' },
+  { id: 1 , name: 'Toyota Camry', price: 50, description: 'A reliable sedan for your travels.', image: '/pexels-harem-1617688755-28688908.jpg' },
   { id: 2, name: 'Honda Accord', price: 55, description: 'Comfortable and spacious for long trips.', image: '/pexels-vadutskevich-16350076.jpg' },
-  { id: 3, name: 'Ford Mustang', price: 70, description: 'A sporty car for an exciting drive.', image: '/cars/ford-mustang.jpg' },
-  { id: 4, name: 'Tesla Model 3', price: 80, description: 'An electric car with advanced features.', image: '/cars/tesla-model3.jpg' },
-  {id: 5,  name:'Audi Q5', price: 3000, description:''}
+  { id: 3, name: 'Ford Mustang', price: 70, description: 'A sporty car for an exciting drive.', image: '/pexels-avinashpatel-544542 (1).jpg' },
+  { id: 4, name: 'Tesla Model 3', price: 80, description: 'An electric car with advanced features.', image: '/pexels-zion-10029873.jpg' },
+  {id: 5,  name:'Audi Q5', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'}
 ];
 
 export default function Home() {
@@ -25,6 +25,7 @@ export default function Home() {
   return (
     <div>
       <Nav />
+      <div>
       <header>
         <Image src={'/pexels-pixabay-164634 (1).jpg'} alt="" width={300} height={50} className="w-full object-cover h-[400px]" />
         <div className="text-white relative -mt-64">
@@ -53,7 +54,29 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="p-6 mt-24 grid grid-cols-1 ">
+          
+      <section className="pt-64 grid grid-cols-1 gap-3 md:grid-cols-3 gap-4 p-6">
+    <div className="col-span-1 md:col-span-3">
+      <h1 className="text-[30px] text-black text-center font-bold">Why Choose Us</h1>
+    </div>
+        <div className="  bg-white justify-center align-center  text-center border-grey-100 border-2 p-4 rounded-lg">
+          <Image className=" mx-auto" src={'/icons8-car-24.png'} width={30} height={30} />
+          <h1 className="font-semibold text-[20px] text-black f  ">Wide Selection</h1>
+          <p className="font-medium text-[#aaaba9] py-2">Choose from a diverse fleet of vehicles to match needs and style.</p>
+        </div>
+        <div className=" bg-white justify-center align-center   text-center border-grey-100 border-2 p-4 rounded-lg">
+          <Image className="mx-auto" src={'/icons8-time-50 (1).png'} width={30} height={30} />
+          <h1 className="font-semibold font-[25px] text-[20px] text-black  ">Easy Booking</h1>
+          <p className="font-medium text-[#aaaba9] py-2">Rent a car in just a few simple steps with our streamlined</p>
+        </div>
+        <div className=" bg-white justify-center align-center  text-center p-4 border-grey-100 border-2 rounded-lg">
+          <Image className="mx-auto" src={'/icons8-dollar-sign-24.png'} width={30} height={30} />
+          <h1 className="font-semibold font-[25px] text-[20px] text-black  ">Best Prices</h1>
+          <p className="font-medium text-[#aaaba9] py-2">Get competitive rates and transparent pricing no hidden fees</p>
+        </div>
+      </section>
+
+      <div className="p-6 mt-1 grid grid-cols-1 ">
         {filteredCars.length === 0 ? (
   <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
 ) : (
@@ -69,12 +92,13 @@ export default function Home() {
           
         />
       </div>
-      <div className="px-4">
+      <div className=" px-4">
       <h2 className="text-xl text-black font-bold">{car.name}</h2>
       <p className=" font-bold text-[21px] text-[#646ae8]"> ${car.price} /day</p>
       <p className="text-gray-600 flex-grow">{car.description}</p>
       <Link href={`/car/${car.id}`} className="py-4 float-right relative right-2">
         <p className="mt-4 inline-block border-[#646ae8] border-2  bg-white font-semibold rounded px-4 py-2 text-center text-[#646ae8]">View Car Details</p>
+       
       </Link>
       </div>
     </div>
@@ -82,6 +106,127 @@ export default function Home() {
 )}
 
       </div>
+
+      <section className=" py-8 px-4">
+          <h1 className="text-[30px] text-black text-center font-bold">How it works</h1>
+        <div className="bg-white borer-grey-100 border-2 p-4 rounded-lg  mt-6">
+          <div className="bg-[#646ae8] align-center mx-auto text-center  w-10 h-10   text-white p-2  rounded-full ">
+            <p className=" text-center font-bold ">1</p>
+           
+          </div>
+          <div className='mx-auto text-center'>
+           <Image  src={'/icons8-search-50 (1).png'} width={30} height={30} alt=""  className="mx-auto mt-4" />
+            <h1 className="text-[20px] font-semibold text-black">Find Your Car</h1>
+            <p className=" font-medium text-[#aaaba9] py-2">Browse our collections or search by location, data and car type</p>
+            </div>
+        </div>
+
+
+        <div className="bg-white borer-grey-100 border-2 p-4 rounded-lg  mt-6">
+          <div className="bg-[#646ae8] align-center mx-auto text-center  w-10 h-10   text-white p-2  rounded-full ">
+            <p className=" text-center font-bold ">2</p>
+           
+          </div>
+          <div className='mx-auto text-center'>
+           <Image  src={'/icons8-booked-32.png'} width={30} height={30} alt=""  className="mx-auto mt-4" />
+            <h1 className="text-[20px] font-semibold text-black">Book & Pay</h1>
+            <p className=" font-medium text-[#aaaba9] py-2">Select your desired car, enter your details, and complete the payment</p>
+            </div>
+        </div>
+
+        <div className="bg-white borer-grey-100 border-2 p-4 rounded-lg  mt-6">
+          <div className="bg-[#646ae8] align-center mx-auto text-center  w-10 h-10   text-white p-2  rounded-full ">
+            <p className=" text-center font-bold ">3</p>
+           
+          </div>
+          <div className='mx-auto text-center'>
+            
+           <Image  src={'/icons8-move-50.png'} width={30} height={30} alt=""  className="mx-auto mt-4" /> 
+            <h1 className="text-[20px] font-semibold text-black">Pick Up & Drive</h1>
+            <p className=" font-medium text-[#aaaba9] py-2">Collect your Keys at the designated location and enjoy your ride!</p>
+            </div>
+        </div>
+
+
+      </section>
+
+      <article className='px-4'>
+        <div>
+           <h1 className="text-[30px] text-black text-center font-bold">What Our Customers Say</h1>
+        </div>
+        <div className="bg-white p-4 border-grey-100 border-2 rounded-lg mt-8">
+          <div className="flex gap-4">
+            <Image src={'/pexels-olly-837358.jpg'} alt="" width={60} height={60} className="object-cover rounded-full h-10 w-10"  />
+            <div>
+              <p className="font-semibold text-[18px] text-black">Austin Timberlake</p>
+              
+              <div className="flex mt-1">
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+              </div>
+            </div>
+          </div>
+           <p className=" font-medium text-[#aaaba9] py-2 italic">"CarRentify made booking car for my vacation incredibly easy. Great service and fantastic car option"</p>
+        </div>
+        <div className="bg-white p-4 border-grey-100 border-2 rounded-lg mt-8">
+          <div className="flex gap-4">
+            <Image src={'/pexels-blitzboy-1040881.jpg'} alt="" width={60} height={60} className="object-cover rounded-full h-10 w-10"  />
+            <div>
+              <p className="font-semibold text-[18px] text-black">Sam Alladice</p>
+              
+              <div className="flex  mt-1">
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+              </div>
+            </div>
+          </div>
+           <p className=" font-medium text-[#aaaba9] py-2 italic">"Competitive prices and quick pick-up. Will definitely use them again for my business trip."</p>
+        </div>
+
+        <div className="bg-white p-4 border-grey-100 border-2 rounded-lg mt-8">
+          <div className="flex gap-4">
+            <Image src={'/pexels-emilygarland-1499327.jpg'} alt="" width={60} height={60} className="object-cover rounded-full h-10 w-10"  />
+            <div>
+              <p className="font-semibold text-[18px] text-black">Emily Sammons</p>
+              
+              <div className="flex mt-1">
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+                <Image src={'/icons8-star-50 (1).png'} alt="" width={16} height={16} />
+              </div>
+            </div>
+          </div>
+           <p className=" font-medium text-[#aaaba9] py-2 italic">"The app so intuitive! Found the perfect car for my family road trip within minutes"</p>
+        </div>
+      
+      </article>
+
+      <section>
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <Image src={'/Selection.png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (1).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (2).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (3).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (4).png'} alt="" width={80} height={80}  />
+        </div>
+
+        <div className="flex items-center justify-center gap-4">
+          <Image src={'/Selection (5).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (6).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (7).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (8).png'} alt="" width={80} height={80}  />
+          <Image src={'/Selection (9).png'} alt="" width={80} height={80}  />
+        </div>
+      </section>
+    </div>
     </div>
   );
 }

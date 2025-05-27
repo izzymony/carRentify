@@ -137,10 +137,24 @@ const confirmBooking = () =>{
                   value={bookingsDates.endDate}
                   onChange={(e) => setBookingDates({...bookingsDates, endDate: e.target.value})}
                 />
+               
+                
               </div>
-
-              <div></div>
-                    
+                    <div className='flex  justify-end gap-2'>
+                          <button className='px-4 py-2 border rounded' 
+                          onClick={() => showModal (false)}
+                         
+                          >
+                              Cancel
+                          </button>
+                           <button 
+                  onClick={confirmBooking}
+                  className="px-4 py-2 bg-[#646ae8] text-white rounded"
+                  disabled={!bookingsDates.startDate || !bookingsDates.endDate}
+                >
+                  Confirm
+                </button>
+                    </div>
                   </div>
               </div>
             )}

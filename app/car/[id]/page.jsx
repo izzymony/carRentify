@@ -3,6 +3,8 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import Nav from '../../components/Nav'
+import React,{useState} from 'react'
+import { useRouter } from 'next/navigation'
 import Cars from '../../components/Cars'
 
 const carsData = [
@@ -41,7 +43,33 @@ const page = ()  =>{
   const  params = useParams();
   const carId = parseInt(params.id) 
   const car =  carsData.find(car => car.id === carId)
+  const router = useRouter();
+  const [showModal, setShowModal] = useState();
+  const [bookingsDates, setBookingDates] = useState({
+    startDate: '',
+    endDate: ''
+  }); 
+const handleBooking = () =>{
+   setShowModal(true);
+}
 
+const confirmBooking = () =>{
+  const bookings = JSON.parse (localStorage.getItem('bookings') || '[]');
+  const newBooking = {
+    carId: car.id,
+    carName: car.name,
+    price: car.price,
+    image: car.image,
+    startDate: bookingsDates.startDate,
+    endDate: bookingsDates.endDate,
+    bookedAt: new Date().toISOString()
+  }
+  bookings.push (newBooking);
+  localStorage.setItem('bookings', JSON.stringify(bookings))
+
+  setShowModal(false);
+  router.push('/bookings')
+}
   if (!car) {
     return (
       <div>
@@ -86,7 +114,36 @@ const page = ()  =>{
 
 
          </div>
+            {showModal && (
+              <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
+                  <div className='bg-white p-6 rounded-lg max-w-md w-full'>
+                      <h2 className='text-2xl font-bold mb-4 text-black '>Confirm Booking</h2>
+                      <p className='mb-4 text-black'> You're about to book: <strong>{car.name}</strong></p>
 
+                    <div className="mb-4">
+                <label className="block mb-2 text-black">Start Date</label>
+                <input 
+                  type="date" 
+                  className="w-full text-[#aaaba9] text-[12px] p-2 border rounded"
+                  value={bookingsDates.startDate}
+                  onChange={(e) => setBookingDates({...bookingsDates, startDate: e.target.value})}
+                />
+              </div>
+                    <div className="mb-4">
+                <label className="block mb-2 text-black"> End Date</label>
+                <input 
+                  type="date" 
+                  className="w-full text-[#aaaba9] text-[12px] p-2 border rounded"
+                  value={bookingsDates.endDate}
+                  onChange={(e) => setBookingDates({...bookingsDates, endDate: e.target.value})}
+                />
+              </div>
+
+              <div></div>
+                    
+                  </div>
+              </div>
+            )}
           <div className="mb-8 border-2 border-grey-100 rounded-[10px] p-2 mt-4">
               <h2 className="text-xl font-semibold mb-3 text-black">Key Features</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -117,7 +174,9 @@ const page = ()  =>{
               </div>
             </div>
                 
-        </div> 
+        </div>
+        <button onClick={handleBooking} className='mt-4 w-full bg-[#646ae8] hover:bg-[#4a50c5] text-white font-bold py-3 px-4 rounded-lg transition duration-200'>
+          Book Now</button> 
       </div>
     </div>
   )

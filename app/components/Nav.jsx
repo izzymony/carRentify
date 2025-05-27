@@ -26,7 +26,7 @@ const Nav = () => {
   return (
     <div>
       {/* <nav className='bg-white w-full shadow-lg p-2'> */}
-      <nav className={`bg-white shadow  p-3 transition-all duration-0.5s ease-in-out ${isScrolled ? 'fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-[50px]' : 'relative w-full'} xl:py-1`}>
+      <nav className={`bg-white shadow  h-16 p-3 transition-all duration-0.5s ease-in-out ${isScrolled ? 'fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-[50px]' : 'relative w-full'} xl:py-1`}>
         <div>
           <Image 
             src={'/icons8-menu-50.png'} 
@@ -93,7 +93,7 @@ const Nav = () => {
               className="block text-white  px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              About
+             Cars
             </a>
             <a
               href="#"

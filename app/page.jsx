@@ -9,7 +9,9 @@ const carsData = [
   { id: 2, name: 'Honda Accord', price: 55, description: 'Comfortable and spacious for long trips.', image: '/pexels-vadutskevich-16350076.jpg' },
   { id: 3, name: 'Ford Mustang', price: 70, description: 'A sporty car for an exciting drive.', image: '/pexels-avinashpatel-544542 (1).jpg' },
   { id: 4, name: 'Tesla Model 3', price: 80, description: 'An electric car with advanced features.', image: '/pexels-zion-10029873.jpg' },
-  {id: 5,  name:'Audi Q5', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'}
+  {id: 5,  name:'Audi Q5', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'},
+  {id: 5,  name:'Range rover', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'},
+  {id: 6,  name:'Audi Q5', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'}
 ];
 
 export default function Home() {
@@ -150,7 +152,7 @@ export default function Home() {
 
       </section>
 
-      <article className='px-4'>
+      <article className='px-4 w-fit mx-auto'>
         <div>
            <h1 className="text-[30px] text-black text-center font-bold">What Our Customers Say</h1>
         </div>
@@ -209,7 +211,7 @@ export default function Home() {
       
       </article>
 
-      <section>
+      <section className="px-4">
         <div className="flex items-center justify-center gap-4 mt-8">
           <Image src={'/Selection.png'} alt="" width={80} height={80}  />
           <Image src={'/Selection (1).png'} alt="" width={80} height={80}  />
@@ -226,6 +228,19 @@ export default function Home() {
           <Image src={'/Selection (9).png'} alt="" width={80} height={80}  />
         </div>
       </section>
+      <hr className="mt-16" />
+      <footer>
+        <h1 className="font-semibold text-center text-black text-[20px] mt-5">CarRentify</h1>
+        <p className=" text-black text-center font-medium mt-3"> Stay updated with our latest offers</p>
+      <div className="flex flex-col  mt-4 px-4 ">
+        <input type="text"  placeholder="" className="p-3 text-[#aaaba9]  rounded-[12px] bg-white border-2 border-[#aaaba9]   rounded-10px" />
+
+        <label htmlFor="">
+
+        </label>
+        <button className="bg-[#646ae8] mt-4 rounded-[12px] p-2">Subscribe</button>
+        </div>
+      </footer>
     </div>
     </div>
   );

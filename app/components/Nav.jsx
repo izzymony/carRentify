@@ -118,7 +118,7 @@ const Nav = () => {
               </div>
             ) : (
               <Link 
-                href="/login" 
+                href="/Login" 
                 className="p-2 rounded-full bg-[#646ae8] text-white font-semibold text-[14px] hover:bg-[#4a50c5] transition-colors"
               >
                 Login/Signup

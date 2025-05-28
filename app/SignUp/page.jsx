@@ -32,7 +32,7 @@ const page = () => {
       });
 
       setSuccessMessage('Signup successful!');
-      router.push('/'); // Redirect to home page or dashboard
+      router.push('/Home'); // Redirect to home page or dashboard
     } catch (error) {
       console.error('Signup error:', error);
       let errorMessage = 'Failed to sign up';
@@ -63,7 +63,7 @@ const page = () => {
         </section>
         
         <form className="max-w-md mx-auto" onSubmit={handleSignUp}>
-          <label htmlFor="name" className="block text-gray-500 text-lg mb-2 font-sans font-semibold">Name</label>
+        <label htmlFor="name" className="block text-gray-500 text-lg mb-2 font-sans font-semibold">Name</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 text-lg">
               <Image src={'/icons8-customer-24.png'} width={20} height={20} alt="Name icon" />
@@ -125,8 +125,8 @@ const page = () => {
             Sign Up
           </button>
           
-          <p className="text-center mt-4">
-            Already have an account? <Link href="/login" className="text-[#646ae8] hover:underline">Log in</Link>
+          <p className="text-center mt-4 text-[#aaaba9]">
+            Already have an account? <Link href="/login" className="text-[#646ae8] font-medium hover:underline">Log in</Link>
           </p>
         </form>
       </div>
@@ -134,4 +134,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default page;          

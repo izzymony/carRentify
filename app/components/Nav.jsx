@@ -152,7 +152,7 @@ const Nav = () => {
             </button>
             
             {user && (
-              <div className="flex items-center mb-4 px-3 py-2">
+              <div className="flex items-center mb-4 ">
                 {user.photoURL ? (
                   <Image
                     src={user.photoURL}
@@ -162,7 +162,7 @@ const Nav = () => {
                     className="rounded-full mr-3"
                   />
                 ) : (
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#646ae8] font-bold mr-3">
+                  <div className="p-3 rounded-full  bg-white  items-center justify-center text-[#646ae8] font-bold mr-3">
                     {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
                   </div>
                 )}

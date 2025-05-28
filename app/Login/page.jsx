@@ -157,7 +157,10 @@ const LoginPage = () => {
           <p className="text-gray-600">
             Don't have an account?{' '}
             <Link 
-              href="/signup" 
+              href="/SignUpconsole.log('Email:', email)
+console.log('Password:', password)
+console.log('Error:', error)
+console.log('Is Loading:', isLoading)" 
               className="text-[#646ae8] font-medium hover:text-[#4a50c5]"
             >
               Sign up

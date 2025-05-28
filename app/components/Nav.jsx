@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ const Nav = () => {
             <div>
             <Image src={'/icons8-search-50.png'} alt='' width={26} height={26} className='mt-2'/>
             </div>
-            <button className='p-2 w-[85px] rounded-full bg-[#646ae8] text-white'>Login</button>
+            <button className='p-2  rounded-full bg-[#646ae8] text-white font-semibold text-[14px]'>Login/Signup</button>
           </div>
         </div> 
 
@@ -73,7 +74,7 @@ const Nav = () => {
               </svg>
               <span className="sr-only">Close menu</span>
             </button>
-
+            
             <a
               href="#"
               className="block font-bold text-[24px] text-white px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
@@ -81,6 +82,8 @@ const Nav = () => {
             >
               𝘾𝙖𝙧𝙍𝙚𝙣𝙩𝙞𝙛𝙮
             </a>
+           
+          
             <a
               href="#"
               className="block text-white px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
@@ -88,6 +91,8 @@ const Nav = () => {
             >
               Home
             </a>
+          
+            
             <a
               href="#"
               className="block text-white  px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
@@ -95,6 +100,17 @@ const Nav = () => {
             >
              Cars
             </a>
+            
+
+           
+            <a
+              href="/bookings"
+              className="block text-white px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Bookings
+            </a>
+           
             <a
               href="#"
               className="block text-white px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
@@ -102,6 +118,7 @@ const Nav = () => {
             >
               Services
             </a>
+           
             <a
               href="#"
               className="block text-white  px-3 py-2 rounded-md text-base font-medium hover:bg-[#646ae8] hover:text-white"
@@ -109,6 +126,7 @@ const Nav = () => {
             >
               Contact
             </a>
+            
           </div>
         </div>
       </nav>

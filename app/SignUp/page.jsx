@@ -126,7 +126,7 @@ const page = () => {
           </button>
           
           <p className="text-center mt-4 text-[#aaaba9]">
-            Already have an account? <Link href="/login" className="text-[#646ae8] font-medium hover:underline">Log in</Link>
+            Already have an account? <Link href="/Login" className="text-[#646ae8] font-medium hover:underline">Log in</Link>
           </p>
         </form>
       </div>

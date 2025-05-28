@@ -198,12 +198,14 @@ const Nav = () => {
             </Link>
             
             {user && (
+              <Link href={'/Login'} >
               <button
                 onClick={handleLogout}
                 className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-[#4a50c5]"
               >
                 Sign out
               </button>
+              </Link>
             )}
           </div>
         </div>

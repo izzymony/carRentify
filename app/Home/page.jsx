@@ -10,8 +10,8 @@ const carsData = [
   { id: 3, name: 'Ford Mustang', price: 70, description: 'A sporty car for an exciting drive.', image: '/pexels-avinashpatel-544542 (1).jpg' },
   { id: 4, name: 'Tesla Model 3', price: 80, description: 'An electric car with advanced features.', image: '/pexels-zion-10029873.jpg' },
   {id: 5,  name:'Audi Q5', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'},
-  {id: 5,  name:'Range rover', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'},
-  {id: 6,  name:'Audi Q5', price: 3000, description:'', image: '/pexels-brandon-martinez-991996542-20220997.jpg'}
+  {id: 6,  name:'Hyundai Ioniq5 ', price: 3000, description:' A compact electric crossover with a futuristic design, generous interior space and robust charging capabilities', image: '/car-2358976_1280.jpg'},
+  {id: 7,  name:'BMW', price: 3000, description:'A luxury mid-size SUV with a spacious interior, comfortable ride, and strong engine options', image:'/bmw-3533813_1280.jpg'}
 ];
 
 const page =() => {
@@ -88,9 +88,11 @@ const page =() => {
         <Image
           src={car.image}
           alt={car.name}
-          layout="fill" // This makes the image fill the container
-          objectFit="cover" // This ensures the image covers the container without distortion
-          className="rounded w-ful" // Optional: to keep the corners rounded
+          layout="fill"
+          // This makes the image fill the container
+          objectFit="cover" 
+         // This ensures the image covers the container without distortion
+          className="rounded " // Optional: to keep the corners rounded
           
         />
       </div>

@@ -4,7 +4,7 @@ import { updateProfile, updateEmail, updatePassword, reauthenticateWithCredentia
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import {useAuth}  from '@/app/context/AuthContext'
-
+B
 const page =() => {
   const { user, logOut } = useAuth()
   const router = useRouter()

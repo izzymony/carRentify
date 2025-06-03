@@ -36,7 +36,9 @@ const carsData = [
       year: '2022'
     }
   },
+
   
+ 
 ];
 
 const page = ()  =>{
@@ -88,7 +90,7 @@ const confirmBooking = () =>{
     <div>
       <Nav />
       <div className='max-w-6xl mx-auto px-4 py-8'>
-       <div className='flex flex-col md:flex-row gap-8"'>
+       <div className='flex flex-col md:flex-row gap-8'>
           {/* */}
          <div >
             <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">

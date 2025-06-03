@@ -50,7 +50,7 @@ const page = () => {
        
         <div className='px-4 mt-7'>
  <header>
-          <div className=' mt-10  p-3   z-10 overflow-hidden bg-white fixed w-full'>
+          <div className=' mt-10  p-3 t0p-0 z-10 overflow-hidden bg-white fixed w-full'>
          <input
   type="text"
   className="shadow-lg text-[#aaaba9]  w-[300px]  p-4 rounded-full border border-gray-300 hover:border-[#646ae8] hover:border-4 focus:border-[#646ae8] focus:border-2 focus:outline-none transition-colors duration-200 placeholder:text-[#646ae8] font-medium"

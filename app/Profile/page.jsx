@@ -1,10 +1,10 @@
 'use client'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { updateProfile, updateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import {useAuth}  from '@/app/context/AuthContext'
-B
+
 const page =() => {
   const { user, logOut } = useAuth()
   const router = useRouter()

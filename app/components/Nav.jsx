@@ -182,7 +182,7 @@ const Nav = () => {
             </Link>
             
             <Link
-              href="/cars"
+              href="/Cars"
               className="block text-white px-3 py-2 rounded-md text-base font-medium hover:bg-[#4a50c5]"
               onClick={() => setIsOpen(false)}
             >

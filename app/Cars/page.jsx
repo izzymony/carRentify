@@ -1,6 +1,7 @@
 'use client'
-import React,{useState}from 'react';
+import React,{useMemo, useState}from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Nav from '../components/Nav';
 
 const carsData =[
@@ -27,26 +28,80 @@ const carsData =[
   { id: 21, name: 'Chevrolet Tahoe', price: 270, description: 'Full-size SUV with massive interior space.', image: '/sports-car-4826752_1280.jpg' },
   { id: 22, name: 'BMW 3 Series', price: 310, description: 'Sporty luxury sedan with precise handling.', image: '/car-7227552_1280.jpg' },
   { id: 23, name: 'Mercedes-Benz GLE', price: 390, description: 'Mid-size luxury SUV with cutting-edge tech.', image: '/mercedes-benz-1036358_1280.jpg' },
-  { id: 24, name: 'Toyota Tacoma', price: 220, description: 'Midsize pickup truck built for adventure.', image: '/toyota-3602380_1280.jpg' },
-  { id: 25, name: 'Honda Civic Type R', price: 240, description: 'Hot hatch with track-ready performance.', image: '/honda-1204881_1280.jpg' },
-  { id: 26, name: 'Porsche Taycan', price: 420, description: 'Electric sports sedan with blistering speed.', image: '/porsche-1204882_1280.jpg' },
+  { id: 24, name: 'Toyota Tacoma', price: 220, description: 'Midsize pickup truck built for adventure.', image: '/car-8446529_1280.jpg' },
+  { id: 25, name: 'Honda Civic Type R', price: 240, description: 'Hot hatch with track-ready performance.', image: '/honda-4384888_1280.jpg' },
+  { id: 26, name: 'Porsche Taycan', price: 420, description: 'Electric sports sedan with blistering speed.', image: '/porsche-boxter-4032307_1280.jpg' },
   { id: 27, name: 'Subaru WRX STI', price: 260, description: 'Rally-bred sports sedan with all-wheel drive.', image: '/subaru-1204883_1280.jpg' },
-  { id: 28, name: 'Ford Bronco', price: 290, description: 'Off-road SUV with retro-modern styling.', image: '/ford-1204884_1280.jpg' },
-  { id: 29, name: 'Lamborghini Huracan', price: 800, description: 'Exotic supercar with screaming V10 engine.', image: '/lamborghini-1204885_1280.jpg' },
-  { id: 30, name: 'Jeep Grand Cherokee', price: 240, description: 'Capable SUV with premium interior options.', image: '/jeep-1204886_1280.jpg' },
-  { id: 31, name: 'Aston Martin DB11', price: 750, description: 'British grand tourer with stunning looks.', image: '/aston-martin-1204887_1280.jpg' },
-  { id: 32, name: 'Maserati Levante', price: 480, description: 'Italian luxury SUV with sporty character.', image: '/maserati-1204888_1280.jpg' },
-  { id: 33, name: 'Rolls-Royce Phantom', price: 1200, description: 'Ultimate luxury sedan with unparalleled comfort.', image: '/rolls-royce-1204889_1280.jpg' }
+  
 ]
 
 const page = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredCars = useMemo (() => {
+      if(!searchTerm) return carsData;
+      return carsData.filter(car => car.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  }, [searchTerm]);
   return (
     <div>
       <div>
         <Nav />
-        <div className=''>
+       
+        <div className='px-4 mt-7'>
+ <header>
+          <div className=' mt-10  p-3   z-10 overflow-hidden bg-white fixed w-full'>
+         <input
+  type="text"
+  className="shadow-lg text-[#aaaba9]  w-[300px]  p-4 rounded-full border border-gray-300 hover:border-[#646ae8] hover:border-4 focus:border-[#646ae8] focus:border-2 focus:outline-none transition-colors duration-200 placeholder:text-[#646ae8] font-medium"
+  placeholder="Search for cars..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  onKeyDown={(e) => {if(e.key === 'Enter') e.preventDefault();}}
+/>
+
+<Image src={'/icons8-search-50 (1).png'} height={20} width={20} className='absolute right-7 -mt-9' type="button" onClick={() => {}} />
+</div>
+   </header>
+   
+        <section>
+          <div>
+            <h1 className='font-bold text-xl text-center'>Cars</h1>
+          </div>
+
+          <div className='p-3 mt-1 grid grid-cols-1'>
+          {filteredCars.length === 0 ? (
+  <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
+) : (
+  filteredCars.map(car => (
+    <div key={car.id} className="border-grey-300 border- rounded-lg mt-5 shadow-lg  py-4 bg-white flex flex-col">
+      <div className="relative w-full h-48 mb-4 rounded overflow-hidden">
+        <Image
+          src={car.image}
+          alt={car.name}
+          layout="fill" // This makes the image fill the container
+          objectFit="cover" // This ensures the image covers the container without distortion
+          className="rounded w-full object-cover " // Optional: to keep the corners rounded
           
+        />
+      </div>
+      <div className=" px-4">
+      <h2 className="text-xl text-black font-bold">{car.name}</h2>
+      <p className=" font-bold text-[21px] text-[#646ae8]"> ${car.price} /day</p>
+      <p className="text-gray-600 flex-grow">{car.description}</p>
+      <Link href={`/car/${car.id}`} className="py-4 float-right relative right-2">
+        <p className="mt-4 inline-block border-[#646ae8] border-2  bg-white font-semibold rounded px-4 py-2 text-center text-[#646ae8]">View Car Details</p>
+       
+      </Link>
+      </div>
+    </div>
+  ))
+)}
+          </div>
+        </section>
         </div>
+     
+
       </div>
     </div>
   )

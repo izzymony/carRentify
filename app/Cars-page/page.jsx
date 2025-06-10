@@ -1,5 +1,5 @@
 'use client'
-import React,{useMemo, useState}from 'react';
+import React, {useMemo, useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '../components/Nav';
@@ -38,81 +38,83 @@ const carsData =[
 const page = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredCars = useMemo (() => {
-      if(!searchTerm) return carsData;
-      return carsData.filter(cars => cars.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCars = useMemo(() => {
+    if(!searchTerm) return carsData;
+    return carsData.filter(cars => cars.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }, [searchTerm]);
+
   return (
-    <div>
-      <div>
-        <Nav />
-       
-        <div className='px-4 mt-7'>
+    <div className="max-w-screen-xl mx-auto">
+      <Nav /> {/* Moved Nav outside the main container to allow full-width header */}
+      
+      <div className="relative"> {/* New wrapper div for the sticky header */}
         <header className='sticky top-0 p-4 bg-white shadow-sm z-10'>
-          <div className="relative flex items-center">
-          <input
-            type="text"
-            className="w-full p-3 pl-10 pr-10 rounded-full border-2 border-gray-200 focus:border-[#646ae8] focus:outline-none transition-colors duration-200 placeholder:text-[#646ae8] font-medium"
-            placeholder="Search for cars..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <Image 
-            src={'/icons8-search-50 (1).png'} 
-            height={20} 
-            width={20} 
-            className="absolute left-3"
-            alt="Search icon"
-          />
-          {searchTerm && (
-            <button 
-              onClick={() => setSearchTerm('')}
-              className="absolute right-3 text-gray-400"
-            >
-              ✕
-            </button>
-          )}
-        </div>
+          <div className="relative flex items-center max-w-2xl mx-auto">
+            <input
+              type="text"
+              className="w-full p-3 pl-10 pr-10 rounded-full border-2 border-gray-200 focus:border-[#646ae8] focus:outline-none transition-colors duration-200 placeholder:text-[#646ae8] font-medium"
+              placeholder="Search for cars..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Image 
+              src={'/icons8-search-50 (1).png'} 
+              height={20} 
+              width={20} 
+              className="absolute left-3"
+              alt="Search icon"
+            />
+            {searchTerm && (
+              <button 
+                onClick={() => setSearchTerm('')}
+                className="absolute right-3 text-gray-400"
+              >
+                ✕
+              </button>
+            )}
+          </div>
         </header>
-        <section>
-          <div>
-            <h1 className='font-bold text-xl text-center'>Cars</h1>
-          </div>
 
-          <div className='p-3 mt-1 grid grid-cols-1'>
-          {filteredCars.length === 0 ? (
-  <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
-) : (
-  filteredCars.map(cars => (
-    <div key={cars.id} className="border-grey-300 border- rounded-lg mt-5 shadow-lg  py-4 bg-white flex flex-col">
-      <div className="relative w-full h-48 mb-4 rounded overflow-hidden">
-        <Image
-          src={cars.image}
-          alt={cars.name}
-          layout="fill" // This makes the image fill the container
-          objectFit="cover" // This ensures the image covers the container without distortion
-          className="rounded w-full object-cover " // Optional: to keep the corners rounded
-          
-        />
-      </div>
-      <div className=" px-4">
-      <h2 className="text-xl text-black font-bold">{cars.name}</h2>
-      <p className=" font-bold text-[21px] text-[#646ae8]"> ${cars.price} /day</p>
-      <p className="text-gray-600 flex-grow">{cars.description}</p>
-      <Link href={`/cars/${cars.id}`} className="py-4 float-right relative right-2">
-        <p className="mt-4 inline-block border-[#646ae8] border-2  bg-white font-semibold rounded px-4 py-2 text-center text-[#646ae8]">View Car Details</p>
-       
-      </Link>
-      </div>
-    </div>
-  ))
-)}
-          </div>
-        </section>
+        <div className='px-4 md:px-6 lg:px-8 pt-4'> {/* Changed mt-7 to pt-4 */}
+          <section className="mt-6">
+            <div>
+              <h1 className='font-bold text-xl md:text-2xl text-center'>Cars</h1>
+            </div>
+
+            <div className='p-3 mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+              {filteredCars.length === 0 ? (
+                <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
+              ) : (
+                filteredCars.map(cars => (
+                  <div key={cars.id} className="border-grey-300 border rounded-lg shadow-lg py-4 bg-white flex flex-col hover:shadow-xl transition-shadow duration-200">
+                    <div className="relative w-full aspect-[4/3] mb-4 rounded overflow-hidden"> {/* Changed to aspect ratio */}
+                      <Image
+                        src={cars.image}
+                        alt={cars.name}
+                        fill
+                        style={{objectFit: 'cover'}}
+                        className="rounded"
+                        priority={cars.id <= 4} // Optional: prioritize loading first few images
+                      />
+                    </div>
+                    <div className="px-4 flex-grow">
+                      <h2 className="text-xl text-black font-bold">{cars.name}</h2>
+                      <p className="font-bold text-[21px] text-[#646ae8]"> ${cars.price} /day</p>
+                      <p className="text-gray-600 mt-2 mb-4">{cars.description}</p>
+                    </div>
+                    <div className="px-4 pb-4">
+                      <Link href={`/cars/${cars.id}`} className="float-right">
+                        <p className="inline-block border-[#646ae8] border-2 bg-white font-semibold rounded px-4 py-2 text-center text-[#646ae8] hover:bg-[#646ae8] hover:text-white transition-colors duration-200">
+                          View Car Details
+                        </p>
+                      </Link>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
         </div>
-     
-
       </div>
     </div>
   )

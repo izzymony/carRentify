@@ -90,25 +90,30 @@ const page =() =>{
             <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
           ) : (
             filteredCars.map(car => (
-              <div key={car.id} className="border-grey-300 border rounded-lg shadow-lg py-4 bg-white flex flex-col">
-                <div className="relative w-full h-48 mb-4 rounded overflow-hidden">
-                  <Image
-                    src={car.image}
-                    alt={car.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded w-full object-cover"
-                  />
-                </div>
-                <div className="px-4">
-                  <h2 className="text-xl text-black font-bold">{car.name}</h2>
-                  <p className="font-bold text-[21px] text-[#646ae8]"> ${car.price} /day</p>
-                  <p className="text-gray-600 flex-grow">{car.description}</p>
-                  <Link href={`/car/${car.id}`} className="py-4 float-right relative right-2">
-                    <p className="mt-4 inline-block border-[#646ae8] border-2 bg-white font-semibold rounded px-4 py-2 text-center text-[#646ae8]">View Car Details</p>
-                  </Link>
-                </div>
-              </div>
+            <div key={car.id} className="border-grey-300 border rounded-lg shadow-lg py-4 bg-white flex flex-col hover:shadow-xl transition-shadow duration-200">
+                                <div className="relative w-full aspect-[4/3] mb-4 rounded overflow-hidden"> {/* Changed to aspect ratio */}
+                                  <Image
+                                    src={car.image}
+                                    alt={car.name}
+                                    fill
+                                    style={{objectFit: 'cover'}}
+                                    className="rounded"
+                                    priority={car.id <= 4} // Optional: prioritize loading first few images
+                                  />
+                                </div>
+                                <div className="px-4 flex-grow">
+                                  <h2 className="text-xl text-black font-bold">{car.name}</h2>
+                                  <p className="font-bold text-[21px] text-[#646ae8]"> ${car.price} /day</p>
+                                  <p className="text-gray-600 mt-2 mb-4">{car.description}</p>
+                                </div>
+                                <div className="px-4 pb-4">
+                                  <Link href={`/car/${car.id}`} className="float-right">
+                                    <p className="inline-block border-[#646ae8] border-2 bg-white font-semibold rounded px-4 py-2 text-center text-[#646ae8] hover:bg-[#646ae8] hover:text-white transition-colors duration-200">
+                                      View Car Details
+                                    </p>
+                                  </Link>
+                                </div>
+                              </div>
             ))
           )}
         </div>

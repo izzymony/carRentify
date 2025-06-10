@@ -12,7 +12,7 @@ const carsData = [
     id: 1, 
     name: 'Toyota Camry', 
     price: 50,
-    title : 'Description',
+    title: 'Description',
     description: 'A reliable sedan for your travels.', 
     image: '/pexels-harem-1617688755-28688908.jpg',
     features: ['Automatic transmission', '5 seats', 'Bluetooth', 'Air conditioning'],
@@ -25,9 +25,9 @@ const carsData = [
   { 
     id: 2, 
     name: 'Honda Accord',
-    title : 'Description', 
+    title: 'Description', 
     price: 55, 
-    description: 'The Honda Accord is a midsize sedan known for its reliability, spacious interior, and fuel efficiency. It offers a comfortable ride with a well-designed cabin that features modern technology and safety features.', 
+    description: 'Comfortable and spacious for long trips.', 
     image: '/pexels-vadutskevich-16350076.jpg',
     features: ['Sunroof', 'Leather seats', 'Backup camera', 'Apple CarPlay'],
     specs: {
@@ -36,9 +36,62 @@ const carsData = [
       year: '2022'
     }
   },
-
-  
- 
+  { 
+    id: 3, 
+    name: 'Ford Mustang',
+    title: 'Description', 
+    price: 70, 
+    description: 'A sporty car for an exciting drive.', 
+    image: '/pexels-avinashpatel-544542 (1).jpg',
+    features: ['V8 Engine', '2 seats', 'Sport mode', 'Premium sound system'],
+    specs: {
+      engine: '5.0L V8',
+      mileage: '15 city / 24 highway',
+      year: '2023'
+    }
+  },
+  { 
+    id: 4, 
+    name: 'Tesla Model 3',
+    title: 'Description', 
+    price: 80, 
+    description: 'An electric car with advanced features.', 
+    image: '/pexels-zion-10029873.jpg',
+    features: ['Electric', 'Autopilot', '15" Touchscreen', 'Over-the-air updates'],
+    specs: {
+      engine: 'Electric',
+      mileage: '358 miles range',
+      year: '2023'
+    }
+  },
+  { 
+    id: 5, 
+    name: 'Audi Q5',
+    title: 'Description', 
+    price: 300, 
+    description: 'Luxury compact SUV with premium interior and technology.', 
+    image: '/pexels-brandon-martinez-991996542-20220997.jpg',
+    features: ['Quattro AWD', 'Panoramic sunroof', 'Virtual cockpit', 'Premium leather'],
+    specs: {
+      engine: '2.0L Turbo 4-cylinder',
+      mileage: '23 city / 29 highway',
+      year: '2023'
+    }
+  },
+  { 
+    id: 6, 
+    name: 'Hyundai Ioniq5',
+    title: 'Description', 
+    price: 3000, 
+    description: 'Futuristic electric crossover with fast charging.', 
+    image: '/car-2358976_1280.jpg',
+    features: ['Ultra-fast charging', 'Solar roof', 'Augmented reality HUD', 'Vehicle-to-load'],
+    specs: {
+      engine: 'Electric',
+      mileage: '303 miles range',
+      year: '2023'
+    }
+  }
 ];
 
 const page = ()  =>{

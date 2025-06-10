@@ -36,7 +36,7 @@ export default function Home() {
         <div className="text-white relative -mt-64">
           <h1 className="font-bold text-center text-[30px]">Find Your Perfect Ride</h1>
           <p className="text-center font-semibold text-[14px]">Discover and book cars effortlessly for any journey, anywhere.</p>
-          <div className=" px-3 gap-2 justify-center align-center">
+          <div className=" px-3 gap-2 justify-center align-center mt-4 sm:flex">
             <input
               type="text"
               className="opacity-50 text-[#646ae8] p-1 rounded-[10px] w-full p-3"
@@ -86,7 +86,8 @@ export default function Home() {
   <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
 ) : (
   filteredCars.map(car => (
-    <div key={car.id} className="border-grey-300 border- rounded-lg mt-5 shadow-lg  py-4 bg-white flex flex-col">
+    <div key={car.id} className="border-grey-300 border- rounded-lg mt-5 shadow-lg  py-4 bg-white flex flex-col  sm:grid grid-cols-2 ">
+      
       <div className="relative w-full h-48 mb-4 rounded overflow-hidden">
         <Image
           src={car.image}
@@ -106,13 +107,14 @@ export default function Home() {
        
       </Link>
       </div>
+      
     </div>
   ))
 )}
 
       </div>
 
-      <Link href={'/Cars'}>
+      <Link href={'/Cars-page'}>
 <p className=" px-4 font-semibold text-[#646ae8]">See more...</p>
 </Link>
       <section className=" py-8 px-4">
@@ -239,7 +241,7 @@ export default function Home() {
         <h1 className="font-semibold text-center text-black text-[20px] mt-5">CarRentify</h1>
         <p className=" text-black text-center font-medium mt-3"> Stay updated with our latest offers</p>
       <div className="flex flex-col  mt-4 px-4 ">
-        <input type="text"  placeholder="" className="p-3 text-[#aaaba9]  rounded-[12px] bg-white border-2 border-[#aaaba9]   rounded-10px" />
+        <input type="text"  placeholder="" className="p-3   rounded-[12px] bg-white border-2 border-[#aaaba9]  text-grey-700  rounded-10px" />
 
         <label htmlFor="">
 

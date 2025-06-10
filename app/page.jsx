@@ -24,7 +24,7 @@ export default function Home() {
   }, [searchTerm]);
 
   return (
-      <div className="max-w-screen-xl mx-auto">
+      <div className="">
         <Nav />
         <div>
           <header className="relative">

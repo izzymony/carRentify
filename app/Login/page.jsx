@@ -73,7 +73,7 @@ const LoginPage = () => {
             <div className="relative">
               <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
                 <Image 
-                  src='/icons8-customer-24.png' 
+                  src='/icons8-email-50 (2).png' 
                   width={20} 
                   height={20} 
                   alt="Email icon" 
@@ -99,7 +99,7 @@ const LoginPage = () => {
             <div className="relative">
               <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
                 <Image 
-                  src='/icons8-email-24.png' 
+                  src='/icons8-authentication-50.png' 
                   width={20} 
                   height={20} 
                   alt="Password icon" 

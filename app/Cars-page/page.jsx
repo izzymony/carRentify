@@ -49,7 +49,7 @@ const page = () => {
       
       <div className="relative"> {/* New wrapper div for the sticky header */}
         <header className='sticky top-0 p-4 bg-white shadow-sm z-10'>
-          <div className="relative flex items-center max-w-2xl mx-auto">
+          <div className="relative flex items-center max-w-xl mx-auto">
             <input
               type="text"
               className="w-full p-3 pl-10 pr-10 rounded-full border-2 border-gray-200 focus:border-[#646ae8] focus:outline-none transition-colors duration-200 placeholder:text-[#646ae8] font-medium"
@@ -61,7 +61,7 @@ const page = () => {
               src={'/icons8-search-50 (1).png'} 
               height={20} 
               width={20} 
-              className="absolute left-8"
+              className="absolute right-4"
               alt="Search icon"
             />
             {searchTerm && (

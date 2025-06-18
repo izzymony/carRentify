@@ -66,7 +66,7 @@ const page = () => {
         <label htmlFor="name" className="block text-gray-500 text-lg mb-2 font-sans font-semibold">Name</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 text-lg">
-              <Image src={'/icons8-customer-24.png'} width={20} height={20} alt="Name icon" />
+              <Image src={'/icons8-user-24 (1).png'} width={20} height={20} alt="Name icon" />
             </span>
             <input
               id="name"
@@ -83,7 +83,7 @@ const page = () => {
           <label htmlFor="email" className="block text-gray-500 text-lg mb-2 font-sans mt-4 font-semibold">Email</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 text-lg">
-              <Image src={'/icons8-email-24.png'} width={20} height={20} alt="Email icon" />
+              <Image src={'/icons8-email-50 (2).png'} width={20} height={20} alt="Email icon" />
             </span>
             <input
               id="email"
@@ -100,7 +100,7 @@ const page = () => {
           <label htmlFor="password" className="block text-gray-500 text-lg mb-2 font-sans mt-4 font-semibold">Password</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-3 flex items-center text-gray-400 text-lg">
-              <Image src={'/icons8-password-24.png'} width={20} height={20} alt="Password icon" />
+              <Image src={'/icons8-authentication-50.png'} width={20} height={20} alt="Password icon" />
             </span>
             <input
               id="password"

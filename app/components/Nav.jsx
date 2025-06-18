@@ -166,9 +166,9 @@ const Nav = () => {
                     {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
                   </div>
                 )}
-                <div>
-                  <p className="text-white font-medium">{user.displayName || 'User'}</p>
-                  <p className="text-white text-sm">{user.email}</p>
+                <div className='overflow-x-auto overflow-x-hidden' >
+                  <p className="text-white font-medium ">{user.displayName || 'User'}</p>
+                  <p className="text-white  ">{user.email}</p>
                 </div>
               </div>
             )}

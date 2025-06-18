@@ -46,9 +46,9 @@ const Nav = () => {
 
   return (
     <div>
-      <nav className={`bg-white shadow p-4 transition-all duration-300 ease-in-out ${
+      <nav className={`bg-white  shadow p-3 transition-all duration-300 ease-in-out  ${
         isScrolled ? 'fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-[50px]' : 'relative w-full'
-      } xl:py-1`}>
+      } xl:py-4`}>
         <div className="flex justify-between items-center">
           {/* Menu button */}
           <Image 
@@ -89,9 +89,9 @@ const Nav = () => {
                 </div>
                 
                 {/* Dropdown menu */}
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                <div className="absolute right-0 mt-2 w-48 bg-white  overflow-hidden rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
                   <div className="px-4 py-2 border-b">
-                    <p className="text-sm font-semibold">{user.displayName || 'User'}</p>
+                    <p className="text-sm text-black font-semibold">{user.displayName || 'User'}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
                   <Link 

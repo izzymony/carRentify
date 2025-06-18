@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Nav from '../../components/Nav'
 import React,{useState} from 'react'
 import { useRouter } from 'next/navigation'
-import Cars from '../../components/Cars'
+
 
 const carsData = [
   { 

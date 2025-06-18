@@ -44,7 +44,7 @@ const page = () => {
   }, [searchTerm]);
 
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="">
       <Nav /> {/* Moved Nav outside the main container to allow full-width header */}
       
       <div className="relative"> {/* New wrapper div for the sticky header */}
@@ -61,7 +61,7 @@ const page = () => {
               src={'/icons8-search-50 (1).png'} 
               height={20} 
               width={20} 
-              className="absolute left-3"
+              className="absolute left-8"
               alt="Search icon"
             />
             {searchTerm && (
@@ -86,14 +86,15 @@ const page = () => {
                 <p className="text-center text-gray-600 col-span-full">No cars found matching your search.</p>
               ) : (
                 filteredCars.map(cars => (
-                  <div key={cars.id} className="border-grey-300 border rounded-lg shadow-lg py-4 bg-white flex flex-col hover:shadow-xl transition-shadow duration-200">
-                    <div className="relative w-full aspect-[4/3] mb-4 rounded overflow-hidden"> {/* Changed to aspect ratio */}
+                  <div key={cars.id} className="border-grey-300 border rounded-lg shadow-lg  bg-white flex flex-col hover:shadow-xl transition-shadow duration-200">
+                    <div className="relative w-full aspect-[4/3] mb-4 rounded overflow-hidden top-0"> {/* Changed to aspect ratio */}
                       <Image
                         src={cars.image}
                         alt={cars.name}
                         fill
                         style={{objectFit: 'cover'}}
                         className="rounded"
+                        
                         priority={cars.id <= 4} // Optional: prioritize loading first few images
                       />
                     </div>

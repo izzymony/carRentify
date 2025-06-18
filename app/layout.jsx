@@ -1,5 +1,6 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { AuthContextProvider } from "./context/AuthContext";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable}`}>
       <body className="font-sans">
+        <AuthContextProvider>
         {children}
+        </AuthContextProvider>
       </body>
     </html>
       
